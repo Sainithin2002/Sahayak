@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate of Achievement</title>
+    <style>
+        body {
+            font-family:'Times New Roman', Times, serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .certificate {
+            position: relative;
+            width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border: 4px dashed #3498db;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .certificate:before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            right: -14px;
+            bottom: -14px;
+            border: 2px solid #3498db;
+            z-index: -1;
+        }
+        .certificate h1 {
+            text-align: center;
+            color: #0ab7ec;
+            margin-bottom: 20px;
+        }
+        .certificate h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .certificate p {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .certificate .date {
+            text-align: right;
+            bottom: 22px;
+            right: 20px;
+            font-size: 16px;
+            color: #0c0c0c;
+        }
+        .signature {
+            font-family: "Dynalight", sans-serif;
+            position: absolute;
+            bottom: 22px;
+            left: 25px;
+            font-size: 60px;
+            color: #262626;
+        }
+        .signature-label {
+            position: absolute;
+            bottom: 5px;
+            left: 35px;
+            font-size: 16px;
+            color: #0f0e0e;
+        }
+        .date-label {
+            position: absolute;
+            bottom: 2px;
+            right: 35px;
+            font-size: 16px;
+            color: #080808;
+        }
+        .custom-font-line {
+            font-family: "Dynalight", sans-serif;
+            font-size: 28px;
+            text-align: center;
+
+            /* Add any other styles for the line */
+        }
+        footer {
+            text-align: center;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        /* Style for the colorful button */
+        .download-btn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+        .certificate h3{
+            text-align: center;
+            font-family: 'Timesnewroman';
+        }
+
+        .download-btn:hover {
+            background-color: #45a049; /* Slightly darker green on hover */
+        }
+        @page {
+            size: A4; 
+        }
+    </style>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Dynalight'>
+
+</head>
+<body>
+    <div class="certificate">
+        <h1>ABC SOLUTIONS</h1>
+        <h1>Certificate of Achievement</h1>
+        <h3>AWARDED TO</h3>
+        <div class="custom-font-line"><b>{{posts.name}}</b></div>
+        <p>This certificate is awarded for outstanding performance and dedication in the field of <b><i>{{posts.details}}</i></b></p>
+        <p>Presented on this day, the {{posts.date}}</p>
+        <b><p class="date">{{posts.date}}</p></b>
+        <b><p class="signature">{{posts.sign}}</p></b>
+        <p class="date-label">Date</p>
+        <p class="signature-label">Sign</p>       
+    </div>
+    
+</body>
+<footer><a href="{% url 'generate_pdf' %}" target="">
+    <button class="download-btn">Download PDF</button>
+</a></footer>
+</html>
