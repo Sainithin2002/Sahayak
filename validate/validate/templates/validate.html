@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Certificate Validation</title>
+</head>
+<body>
+    <h1>Certificate Validation</h1>
+    <form action="validate" method="POST">
+        {% csrf_token %}
+        <label for="certificateId">Enter Certificate ID:</label>
+        <input type="text" id="id" name="id" placeholder="Enter your certificate ID here" required>
+        <button type="submit">Validate</button>
+    </form>
+</body>
+</html>
